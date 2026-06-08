@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/bh8YG9l_8Pk?rel=0&modestbranding=1";
 
@@ -15,9 +16,15 @@ export default function TrailerSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           Watch the trailer.
         </h2>
-        <p className="text-lg text-muted-foreground mb-10">
+        <p className="text-lg text-muted-foreground mb-4">
           See gPhone V in action.
         </p>
+        <Link
+          to="/learn-more"
+          className="inline-block mb-8 text-primary text-base font-medium hover:underline"
+        >
+          Learn more about gPhone V &rsaquo;
+        </Link>
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
           <iframe
             src={YOUTUBE_EMBED_URL}
