@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+// Phone inner screen dimensions (fixed)
+const SCREEN_W = 300;
+const SCREEN_H = 533; // 300 * 16/9 = 533.33
+
 export default function GOSSection() {
+  const scale = SCREEN_W / 390; // scale 390px-wide site down to fit
+
   return (
     <section className="py-20 px-6">
       <motion.div
@@ -28,30 +34,50 @@ export default function GOSSection() {
           Learn more about gOS &rsaquo;
         </Link>
 
-        {/* Phone mockup frame */}
-        <div className="relative mx-auto" style={{ maxWidth: "320px" }}>
+        {/* Phone mockup */}
+        <div className="relative mx-auto" style={{ width: `${SCREEN_W + 24}px` }}>
+          {/* Side buttons */}
           <div className="absolute right-[-3px] top-20 w-[3px] h-10 bg-gray-700 rounded-l-sm z-10" />
           <div className="absolute left-[-3px] top-16 w-[3px] h-7 bg-gray-700 rounded-r-sm z-10" />
-          <div className="absolute left-[-3px] top-28 w-[3px] h-12 bg-gray-700 rounded-r-sm z-10" />
-          <div className="absolute left-[-3px] top-44 w-[3px] h-12 bg-gray-700 rounded-r-sm z-10" />
+          <div className="absolute left-[-3px] top-28 w-[3px] h-10 bg-gray-700 rounded-r-sm z-10" />
+          <div className="absolute left-[-3px] top-44 w-[3px] h-10 bg-gray-700 rounded-r-sm z-10" />
 
-          <div className="relative rounded-[2.5rem] border-[10px] border-gray-900 bg-gray-900 overflow-hidden shadow-2xl">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-gray-900 rounded-b-xl z-10" />
-            <div className="w-full overflow-hidden" style={{ aspectRatio: "9 / 16" }}>
+          {/* Phone shell */}
+          <div
+            className="relative rounded-[2.5rem] bg-gray-900 overflow-hidden shadow-2xl"
+            style={{ border: "12px solid #111" }}
+          >
+            {/* Notch */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-10" />
+
+            {/* Fixed-size screen container */}
+            <div
+              style={{
+                width: `${SCREEN_W}px`,
+                height: `${SCREEN_H}px`,
+                overflow: "hidden",
+                position: "relative",
+                backgroundColor: "#000",
+              }}
+            >
               <iframe
                 src="https://gphoneapk.base44.app/"
                 title="gOS Software Preview"
-                className="border-0"
                 style={{
-                  width: "1080px",
-                  height: "1920px",
-                  transform: "scale(0.2778)",
+                  width: "390px",
+                  height: `${390 * (16 / 9)}px`,
+                  transform: `scale(${scale})`,
                   transformOrigin: "top left",
+                  border: "none",
                   display: "block",
                 }}
               />
             </div>
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-white/30 rounded-full" />
+
+            {/* Home indicator */}
+            <div className="flex justify-center py-2 bg-black">
+              <div className="w-20 h-1 bg-white/30 rounded-full" />
+            </div>
           </div>
         </div>
 
