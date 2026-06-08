@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function GOSSection() {
   return (
@@ -16,27 +17,29 @@ export default function GOSSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           The software is the superpower.
         </h2>
-        <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+        <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto">
           gOS is built from the ground up. GAIA understands context, anticipates your needs, and responds before you finish your thought.
         </p>
 
+        <Link
+          to="/gos"
+          className="inline-block mb-10 text-primary text-base font-medium hover:underline"
+        >
+          Learn more about gOS &rsaquo;
+        </Link>
+
         {/* Phone mockup frame */}
         <div className="relative mx-auto" style={{ maxWidth: "320px" }}>
-          {/* Side buttons */}
           <div className="absolute right-[-3px] top-20 w-[3px] h-10 bg-gray-700 rounded-l-sm z-10" />
           <div className="absolute left-[-3px] top-16 w-[3px] h-7 bg-gray-700 rounded-r-sm z-10" />
           <div className="absolute left-[-3px] top-28 w-[3px] h-12 bg-gray-700 rounded-r-sm z-10" />
           <div className="absolute left-[-3px] top-44 w-[3px] h-12 bg-gray-700 rounded-r-sm z-10" />
 
-          {/* Phone shell */}
           <div className="relative rounded-[2.5rem] border-[10px] border-gray-900 bg-gray-900 overflow-hidden shadow-2xl">
-            {/* Notch */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-gray-900 rounded-b-xl z-10" />
-
-            {/* Screen — strict 9:16 */}
             <div className="w-full overflow-hidden" style={{ aspectRatio: "9 / 16" }}>
               <iframe
-                src="https://gphoneapk.db.app"
+                src="https://gphoneapk.base44.app/"
                 title="gOS Software Preview"
                 className="border-0"
                 style={{
@@ -48,8 +51,6 @@ export default function GOSSection() {
                 }}
               />
             </div>
-
-            {/* Home indicator bar */}
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-white/30 rounded-full" />
           </div>
         </div>
