@@ -24,7 +24,7 @@ export default function HeroSection({ heroImage }) {
           Power in its purest form.
         </p>
         <p className="text-lg text-muted-foreground mt-2">
-          6.7" Display. 16GB RAM. The new standard.
+          6.7&quot; Display. 16GB RAM. The new standard.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
@@ -46,12 +46,12 @@ export default function HeroSection({ heroImage }) {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-        className="mt-16 max-w-md mx-auto"
+        className="mt-16 max-w-xs mx-auto"
       >
         <img
           src={heroImage}
           alt="gPhone V premium smartphone"
-          className="w-full h-auto"
+          className="w-full h-auto drop-shadow-2xl"
         />
       </motion.div>
 
