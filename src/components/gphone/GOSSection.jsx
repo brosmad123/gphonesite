@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import { motion } from "framer-motion";
 
 export default function GOSSection() {
@@ -23,28 +21,37 @@ export default function GOSSection() {
         </p>
 
         {/* Phone mockup frame */}
-        <div className="relative mx-auto" style={{ maxWidth: "360px" }}>
-          <div className="relative rounded-[2.5rem] border-[8px] border-black bg-black overflow-hidden shadow-2xl">
+        <div className="relative mx-auto" style={{ maxWidth: "320px" }}>
+          {/* Side buttons */}
+          <div className="absolute right-[-3px] top-20 w-[3px] h-10 bg-gray-700 rounded-l-sm z-10" />
+          <div className="absolute left-[-3px] top-16 w-[3px] h-7 bg-gray-700 rounded-r-sm z-10" />
+          <div className="absolute left-[-3px] top-28 w-[3px] h-12 bg-gray-700 rounded-r-sm z-10" />
+          <div className="absolute left-[-3px] top-44 w-[3px] h-12 bg-gray-700 rounded-r-sm z-10" />
+
+          {/* Phone shell */}
+          <div className="relative rounded-[2.5rem] border-[10px] border-gray-900 bg-gray-900 overflow-hidden shadow-2xl">
             {/* Notch */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-10" />
-            <div className="w-full" style={{ aspectRatio: "9/19.5" }}>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-gray-900 rounded-b-xl z-10" />
+
+            {/* Screen — strict 9:16 */}
+            <div className="w-full overflow-hidden" style={{ aspectRatio: "9 / 16" }}>
               <iframe
                 src="https://gphoneapk.db.app"
                 title="gOS Software Preview"
-                className="w-full h-full border-0"
-                style={{ 
+                className="border-0"
+                style={{
                   width: "1080px",
                   height: "1920px",
-                  transform: "scale(0.333)",
+                  transform: "scale(0.2778)",
                   transformOrigin: "top left",
+                  display: "block",
                 }}
               />
             </div>
+
+            {/* Home indicator bar */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-1 bg-white/30 rounded-full" />
           </div>
-          {/* Side button */}
-          <div className="absolute right-[-4px] top-24 w-1 h-12 bg-black rounded-l-sm" />
-          <div className="absolute left-[-4px] top-20 w-1 h-8 bg-black rounded-r-sm" />
-          <div className="absolute left-[-4px] top-32 w-1 h-8 bg-black rounded-r-sm" />
         </div>
 
         <p className="text-xs text-muted-foreground mt-6">
